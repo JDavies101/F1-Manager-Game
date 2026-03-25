@@ -5,6 +5,7 @@ extends Control
 @onready var tyre_age = $HBoxContainer/VBoxContainer2/TyreAge
 @onready var gap_info = $HBoxContainer/VBoxContainer2/GapInfo
 @onready var lap_counter = $HBoxContainer/VBoxContainer2/LapCounter
+@onready var track_draw = $HBoxContainer/SubViewportContainer/SubViewport/TrackView/Node2D
 
 var current_lap: int = 0
 var total_laps: int = 0
@@ -63,6 +64,47 @@ func _simulate_lap():
 		var variation = randf_range(-0.5, 0.5)
 		p.gap += base_time + deg + variation
 		p.tyre_age += 1
+	_update_track_positions()
+
+func _update_track_positions():
+	var sorted = positions.duplicate()
+	sorted.sort_custom(func(a, b): return a.gap < b.gap)
+	
+	var leader_gap = sorted[0].gap
+	var last_gap = sorted[-1].gap
+	var gap_range = max(last_gap - leader_gap, 1.0)
+	
+	var lap_progress = float(current_lap) / float(total_laps)
+	
+	var car_data = []
+	for p in sorted:
+		var gap_offset = (p.gap - leader_gap) / gap_range * 0.15
+		var progress = fmod(lap_progress - gap_offset + 1.0, 1.0)
+		var team_color = _get_team_color(p.team)
+		car_data.append({
+			"progress": progress,
+			"color_r": team_color.r,
+			"color_g": team_color.g,
+			"color_b": team_color.b
+		})
+	
+	track_draw.update_cars(car_data)
+
+func _get_team_color(team: String) -> Color:
+	var colors = {
+		"RedBull": Color(0.0, 0.0, 0.6),
+		"McLaren": Color(1.0, 0.5, 0.0),
+		"Ferrari": Color(1.0, 0.0, 0.0),
+		"Mercedes": Color(0.0, 0.8, 0.7),
+		"Williams": Color(0.0, 0.4, 1.0),
+		"AstonMartin": Color(0.0, 0.5, 0.3),
+		"Alpine": Color(0.0, 0.2, 1.0),
+		"Haas": Color(0.8, 0.8, 0.8),
+		"RacingBulls": Color(0.3, 0.5, 1.0),
+		"Cadillac": Color(0.9, 0.1, 0.1),
+		"Audi": Color(0.85, 0.0, 0.0),
+	}
+	return colors.get(team, Color.WHITE)
 
 func _update_ui():
 	lap_counter.text = "Lap %d / %d" % [current_lap, total_laps]

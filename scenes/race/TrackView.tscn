@@ -11,8 +11,8 @@
 curve = SubResource("Curve2D_q1vu0")
 script = ExtResource("1_66op4")
 
-[node name="Node2D" type="Node2D" parent="TrackPath" unique_id=857154891 node_paths=PackedStringArray("path")]
+[node name="Node2D" type="Node2D" parent="." unique_id=857154891 node_paths=PackedStringArray("path")]
 script = ExtResource("2_ea5pm")
-path = NodePath("..")
+path = NodePath("../TrackPath")
 
 [node name="Cars" type="Node2D" parent="." unique_id=1058423566]

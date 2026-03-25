@@ -9,6 +9,7 @@ var drivers: Array = []
 var player_car: Data.Car = null
 var calendar: Array = []
 var selected_race: Data.Race = null
+var car_track_positions: Array = []
 
 signal state_changed
 
