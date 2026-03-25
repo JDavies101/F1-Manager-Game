@@ -16,6 +16,9 @@ signal state_changed
 func _ready():
 	_init_calendar()
 	_init_drivers()
+	_init_tyres()
+	_init_tracks()
+	_init_conditions()
 	
 func _init_calendar():
 	var r1 = Data.Race.new()
@@ -59,3 +62,68 @@ func _init_drivers():
 	d5.overtaking = 84; d5.salary = 12000000; d5.contract_years = 1
 
 	drivers = [d1, d2, d3, d4, d5]
+
+var tyres: Dictionary = {}
+
+func _init_tyres():
+	var soft = Data.TyreCompound.new()
+	soft.name = "Soft"
+	soft.base_lap_time_delta = -1.2
+	soft.deg_rate = 0.08
+	soft.cliff_lap = 18
+	soft.warmup_laps = 1
+
+	var medium = Data.TyreCompound.new()
+	medium.name = "Medium"
+	medium.base_lap_time_delta = 0.0
+	medium.deg_rate = 0.04
+	medium.cliff_lap = 30
+	medium.warmup_laps = 2
+
+	var hard = Data.TyreCompound.new()
+	hard.name = "Hard"
+	hard.base_lap_time_delta = 0.8
+	hard.deg_rate = 0.02
+	hard.cliff_lap = 45
+	hard.warmup_laps = 3
+
+	tyres = {"Soft": soft, "Medium": medium, "Hard": hard}
+
+var track_data: Dictionary = {}
+
+func _init_tracks():
+	var melb = Data.TrackData.new()
+	melb.name = "Melbourne"
+	melb.tyre_deg_modifier = 1.0
+	melb.fuel_burn_modifier = 1.0
+	melb.overtake_difficulty = 0.6
+	melb.base_lap_time = 90.0
+
+	var shanghai = Data.TrackData.new()
+	shanghai.name = "Shanghai"
+	shanghai.tyre_deg_modifier = 1.3
+	shanghai.fuel_burn_modifier = 1.1
+	shanghai.overtake_difficulty = 0.4
+	shanghai.base_lap_time = 94.0
+
+	var suzuka = Data.TrackData.new()
+	suzuka.name = "Suzuka"
+	suzuka.tyre_deg_modifier = 1.5
+	suzuka.fuel_burn_modifier = 1.05
+	suzuka.overtake_difficulty = 0.8
+	suzuka.base_lap_time = 91.0
+
+	track_data = {
+		"Melbourne": melb,
+		"Shanghai": shanghai,
+		"Suzuka": suzuka
+	}
+
+var track_temp: float = 35.0
+var air_temp: float = 22.0
+var is_wet: bool = false
+
+func _init_conditions():
+	track_temp = randf_range(25.0, 55.0)
+	air_temp = randf_range(15.0, 35.0)
+	is_wet = randf() < 0.15

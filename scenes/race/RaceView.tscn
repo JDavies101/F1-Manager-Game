@@ -53,6 +53,16 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "Strategy"
 
+[node name="TrackTemp" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1306516199]
+layout_mode = 2
+
+[node name="Conditions" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=677335273]
+layout_mode = 2
+
+[node name="FuelInfo" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=77044590]
+layout_mode = 2
+text = "Fuel: 110kg"
+
 [node name="TyreInfo" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=839966843]
 layout_mode = 2
 text = "Tyre: Medium"

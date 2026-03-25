@@ -23,3 +23,22 @@ class Race:
 	var circuit: String
 	var lap_count: int
 	var lap_length_km: float
+
+class TyreCompound:
+	var name: String
+	var base_lap_time_delta: float
+	var deg_rate: float
+	var cliff_lap: int
+	var warmup_laps: int
+
+class FuelModel:
+	const FUEL_LOAD_KG = 110.0
+	const FUEL_BURN_PER_LAP = 1.8
+	const FUEL_TIME_PER_KG = 0.03
+
+class TrackData:
+	var name: String
+	var tyre_deg_modifier: float
+	var fuel_burn_modifier: float
+	var overtake_difficulty: float
+	var base_lap_time: float
