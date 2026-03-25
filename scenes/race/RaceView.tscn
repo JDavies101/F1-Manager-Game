@@ -79,6 +79,32 @@ text = "Gap: -"
 layout_mode = 2
 text = "Lap 0/0"
 
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=1164036602]
+layout_mode = 2
+
+[node name="SpeedControls" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2" unique_id=489847866]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer2/SpeedControls" unique_id=1347959771]
+layout_mode = 2
+text = "1x"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer2/SpeedControls" unique_id=13581479]
+layout_mode = 2
+text = "5x"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer2/SpeedControls" unique_id=2066924312]
+layout_mode = 2
+text = "10x"
+
+[node name="Button5" type="Button" parent="HBoxContainer/VBoxContainer2/SpeedControls" unique_id=222024979]
+layout_mode = 2
+text = "20x"
+
+[node name="Button6" type="Button" parent="HBoxContainer/VBoxContainer2/SpeedControls" unique_id=1721365702]
+layout_mode = 2
+text = "40x"
+
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=1805010769]
 layout_mode = 2
 
@@ -105,6 +131,11 @@ text = "Hard"
 layout_mode = 2
 text = "Back"
 
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SpeedControls/Button2" to="." method="_on_1x_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SpeedControls/Button3" to="." method="_on_5x_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SpeedControls/Button4" to="." method="_on_10x_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SpeedControls/Button5" to="." method="_on_20x_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/SpeedControls/Button6" to="." method="_on_40x_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="." method="_on_soft_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button2" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button3" to="." method="_on_hard_pressed"]
