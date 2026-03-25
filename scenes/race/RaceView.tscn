@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://btbbsi6uv1a3t"]
+
+[ext_resource type="Script" uid="uid://bdsserq8ue15" path="res://scripts/RaceView.gd" id="1_5j6fq"]
+
+[node name="RaceView" type="Control" unique_id=940775444]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5j6fq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1570018004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1461580810]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=37445762]
+layout_mode = 2
+text = "Timing Tower"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer" unique_id=1359073660]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TimingList" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer" unique_id=585046983]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LapCounter" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1448003744]
+layout_mode = 2
+text = "Lap 0 / 0"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=49916518]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1502306044]
+layout_mode = 2
+text = "Strategy"
+
+[node name="TyreInfo" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1554753124]
+layout_mode = 2
+text = "Tyre: -"
+
+[node name="TyreAge" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1890382464]
+layout_mode = 2
+text = "Age: 0 laps"
+
+[node name="GapInfo" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=143589707]
+layout_mode = 2
+text = "Gap: -"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=1491716711]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1372607775]
+layout_mode = 2
+text = "Pit Stop"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2" unique_id=1123696890]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1577858299]
+layout_mode = 2
+text = "Soft"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1436376974]
+layout_mode = 2
+text = "Medium"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1635787135]
+layout_mode = 2
+text = "Hard"
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2" unique_id=810639308]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=1594256031]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button" to="." method="_on_soft_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button2" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/Button3" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Button" to="." method="_on_back_pressed"]

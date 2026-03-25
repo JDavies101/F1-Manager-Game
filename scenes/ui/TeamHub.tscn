@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://d16cgl6rli8mw"]
+
+[ext_resource type="Script" uid="uid://bdk8v4yunjmu7" path="res://scenes/TeamHub.gd" id="1_gw1gs"]
+
+[node name="TeamHub" type="Control" unique_id=1917179185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gw1gs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=405361672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=92346806]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1788383791]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "team name"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1029975360]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "budget"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=630058024]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "season"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=950538421]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Overview" type="Control" parent="VBoxContainer/TabContainer" unique_id=1766965054]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Drivers" type="Control" parent="VBoxContainer/TabContainer" unique_id=1971396911]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Car" type="Control" parent="VBoxContainer/TabContainer" unique_id=1008477747]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Calendar" type="Control" parent="VBoxContainer/TabContainer" unique_id=1992121928]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Calendar" unique_id=658632007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Calendar/VBoxContainer" unique_id=208517745]
+layout_mode = 2
+text = "2025 Season Calendar"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Calendar/VBoxContainer" unique_id=1599872535]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RaceList" type="VBoxContainer" parent="VBoxContainer/TabContainer/Calendar/VBoxContainer/ScrollContainer" unique_id=348803726]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1339180586]
+layout_mode = 2
+text = "Go to Race"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_go_to_race_pressed"]

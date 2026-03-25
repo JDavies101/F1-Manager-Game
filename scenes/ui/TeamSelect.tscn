@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://canr48k48hcxa"]
+
+[ext_resource type="Script" uid="uid://b7cw8udcr1hav" path="res://scenes/ui/TeamSelect.gd" id="1_4wboo"]
+
+[node name="TeamSelect" type="Control" unique_id=1971536761]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4wboo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=502918845]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1579701979]
+layout_mode = 2
+text = "Select Your Team"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=324453654]
+layout_mode = 2
+columns = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer" unique_id=1461522668]
+layout_mode = 2
+text = "Williams"
+
+[node name="Button2" type="Button" parent="VBoxContainer/GridContainer" unique_id=1689687533]
+layout_mode = 2
+text = "Audi"
+
+[node name="Button3" type="Button" parent="VBoxContainer/GridContainer" unique_id=287429205]
+layout_mode = 2
+text = "Haas"
+
+[node name="Button4" type="Button" parent="VBoxContainer/GridContainer" unique_id=1268465391]
+layout_mode = 2
+text = "Alpine"
+
+[node name="Button5" type="Button" parent="VBoxContainer/GridContainer" unique_id=209380929]
+layout_mode = 2
+text = "RacingBulls"
+
+[node name="Button6" type="Button" parent="VBoxContainer/GridContainer" unique_id=1213485811]
+layout_mode = 2
+text = "AstonMartin"
+
+[node name="Button7" type="Button" parent="VBoxContainer/GridContainer" unique_id=1440718759]
+layout_mode = 2
+text = "McLaren"
+
+[node name="Button8" type="Button" parent="VBoxContainer/GridContainer" unique_id=1200886242]
+layout_mode = 2
+text = "Mercedes"
+
+[node name="Button9" type="Button" parent="VBoxContainer/GridContainer" unique_id=1999420309]
+layout_mode = 2
+text = "Ferrari"
+
+[node name="Button10" type="Button" parent="VBoxContainer/GridContainer" unique_id=959315344]
+layout_mode = 2
+text = "RedBull"
+
+[node name="Button11" type="Button" parent="VBoxContainer/GridContainer" unique_id=627814099]
+layout_mode = 2
+text = "Cadillac"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=146295268]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button" to="." method="_on_team_pressed" binds= ["Williams"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button2" to="." method="_on_team_pressed" binds= ["Audi"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button3" to="." method="_on_team_pressed" binds= ["Haas"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button4" to="." method="_on_team_pressed" binds= ["Alpine"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button5" to="." method="_on_team_pressed" binds= ["RacingBulls"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button6" to="." method="_on_team_pressed" binds= ["AstonMartin"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button7" to="." method="_on_team_pressed" binds= ["McLaren"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button8" to="." method="_on_team_pressed" binds= ["Mercedes"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button9" to="." method="_on_team_pressed" binds= ["Ferrari"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button10" to="." method="_on_team_pressed" binds= ["RedBull"]]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button11" to="." method="_on_team_pressed" binds= ["Cadillac"]]

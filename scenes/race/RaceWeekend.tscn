@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://i6d4t78egebp"]
+
+[ext_resource type="Script" uid="uid://u32t43lr4dg3" path="res://scripts/RaceWeekend.gd" id="1_u5nuj"]
+
+[node name="RaceWeekend" type="Control" unique_id=1255327565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u5nuj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=691267805]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1848930958]
+layout_mode = 2
+text = "Race Weekend"
+
+[node name="RaceName" type="Label" parent="VBoxContainer" unique_id=1465336601]
+layout_mode = 2
+
+[node name="CircuitInfo" type="Label" parent="VBoxContainer" unique_id=1473650654]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1313696513]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1782891789]
+layout_mode = 2
+text = "Session"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=739878918]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1743463948]
+layout_mode = 2
+text = "Practice"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1072236722]
+layout_mode = 2
+text = "Qualifying"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1844692381]
+layout_mode = 2
+text = "Race"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=597559813]
+layout_mode = 2
+text = "Back to Hub"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_race_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_back_to_hub_pressed"]
