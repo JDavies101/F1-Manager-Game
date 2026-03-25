@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://csnmsksx5fght"]
+
+[ext_resource type="Script" uid="uid://2psln242wmh1" path="res://scripts/TrackPath.gd" id="1_66op4"]
+[ext_resource type="Script" uid="uid://dodcfileoeg5v" path="res://scripts/DrawTrack.gd" id="2_ea5pm"]
+
+[sub_resource type="Curve2D" id="Curve2D_q1vu0"]
+
+[node name="TrackView" type="Node2D" unique_id=1631506991]
+
+[node name="TrackPath" type="Path2D" parent="." unique_id=2086748484]
+curve = SubResource("Curve2D_q1vu0")
+script = ExtResource("1_66op4")
+
+[node name="Node2D" type="Node2D" parent="TrackPath" unique_id=857154891 node_paths=PackedStringArray("path")]
+script = ExtResource("2_ea5pm")
+path = NodePath("..")
+
+[node name="Cars" type="Node2D" parent="." unique_id=1058423566]

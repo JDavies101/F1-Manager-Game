@@ -1,10 +1,10 @@
 extends Control
 
 @onready var timing_list = $HBoxContainer/VBoxContainer/ScrollContainer/TimingList
-@onready var lap_counter = $HBoxContainer/VBoxContainer/LapCounter
 @onready var tyre_info = $HBoxContainer/VBoxContainer2/TyreInfo
 @onready var tyre_age = $HBoxContainer/VBoxContainer2/TyreAge
 @onready var gap_info = $HBoxContainer/VBoxContainer2/GapInfo
+@onready var lap_counter = $HBoxContainer/VBoxContainer2/LapCounter
 
 var current_lap: int = 0
 var total_laps: int = 0
@@ -14,6 +14,9 @@ var positions: Array = []
 var timer: Timer
 
 func _ready():
+	await get_tree().process_frame
+	$HBoxContainer/SubViewportContainer/SubViewport.size = $HBoxContainer/SubViewportContainer.size
+	$HBoxContainer/VBoxContainer/ScrollContainer.custom_minimum_size = Vector2(0, 300)
 	total_laps = GameState.selected_race.lap_count
 	_init_positions()
 	_update_ui()
@@ -21,7 +24,10 @@ func _ready():
 
 func _init_positions():
 	positions = []
+	print("GameState drivers: ", GameState.drivers.size())
+	print("GameState team: ", GameState.team_name)
 	for d in GameState.drivers:
+		print("driver: ", d.name, " team: ", d.team)
 		positions.append({
 			"name": d.name,
 			"team": d.team,
@@ -32,6 +38,7 @@ func _init_positions():
 			"is_player": d.team == GameState.team_name
 		})
 	positions.shuffle()
+	print("positions size: ", positions.size())
 	
 func _setup_timer():
 	timer = Timer.new()
